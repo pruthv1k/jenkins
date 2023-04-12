@@ -1,12 +1,12 @@
 pipeline{
     agent any
     tools {
-        maven 'MAVEN'
+        maven 'Jenkins_Maven'
     }
     stages {
         stage('Build Maven') {
             steps{
-                checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'devopshint', url: 'https://github.com/pruthv1k/jenkins...]]])
+                checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'pruthv1k', url: 'https://github.com/pruthv1k/jenkins...]]])
 
                 sh "mvn -Dmaven.test.failure.ignore=true clean package"
                 
